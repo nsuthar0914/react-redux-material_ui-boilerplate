@@ -47,6 +47,7 @@
   "dependencies": {
     "classnames": "^2.2.3",
     "fbjs": "^0.8.1",
+    "flux-constants": "^0.2.2",
     "material-ui": "^0.14.4",
     "react": "^0.14.0",
     "react-addons-create-fragment": "^0.14.0",
