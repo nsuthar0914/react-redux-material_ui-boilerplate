@@ -3,6 +3,13 @@ import ReactDOM from "react-dom";
 import injectTapEventPlugin from "react-tap-event-plugin";
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
+import { syncHistoryWithStore } from 'react-router-redux';
+import routes      from '../routes/routing';
+import {
+  Router,
+  browserHistory } from 'react-router';
+
+
 
 import App from '../containers/App';
 import configureStore from '../store/configureStore';
@@ -15,12 +22,12 @@ window.React = React;
 //Check this repo:
 //https://github.com/zilverline/react-tap-event-plugin
 injectTapEventPlugin();
-
 const store = configureStore();
+const history = syncHistoryWithStore(browserHistory, store)
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <Router history={history} routes={routes}></Router>
   </Provider>,
   document.getElementById("root")
 );
